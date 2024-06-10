@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-clean-order/error"
+  ],
+  "rules": {
+    "max-nesting-depth": [3, { "ignore": ["blockless-at-rules"] }]
+  }
+}
