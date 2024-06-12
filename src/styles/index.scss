@@ -5,3 +5,57 @@
 *::after {
   box-sizing: border-box;
 }
+
+body {
+  min-height: 100svh;
+  background: #1e213f;
+}
+
+.h1 {
+  font:
+    700 100px / 120px 'Kumbh Sans',
+    sans-serif;
+  color: var(--color-lavender);
+  letter-spacing: -0.05em;
+}
+
+.h2 {
+  font:
+    700 28px / 34px 'Kumbh Sans',
+    sans-serif;
+  color: var(--color-lavender);
+}
+
+.h3 {
+  font:
+    700 16px / 19px 'Kumbh Sans',
+    sans-serif;
+  color: var(--color-lavender);
+  text-transform: uppercase;
+  letter-spacing: 0.94em;
+}
+
+.h4 {
+  font:
+    700 13px / 16px 'Kumbh Sans',
+    sans-serif;
+  color: var(--color-lavender);
+  text-transform: uppercase;
+  letter-spacing: 0.38em;
+}
+
+.body-1 {
+  font:
+    700 14px / 18px 'Kumbh Sans',
+    sans-serif;
+  color: var(--color-lavender);
+  opacity: 0.6;
+}
+
+.body-2 {
+  font:
+    700 12px / 14px 'Kumbh Sans',
+    sans-serif;
+  color: var(--color-lavender);
+  opacity: 0.4;
+}

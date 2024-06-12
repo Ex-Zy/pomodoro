@@ -1,10 +1,26 @@
 {
+  "plugins": [
+    "stylelint-no-indistinguishable-colors",
+    "stylelint-high-performance-animation",
+    "stylelint-group-selectors",
+    "stylelint-selector-no-empty",
+    "stylelint-z-index-value-constraint"
+  ],
   "extends": [
     "stylelint-config-standard-scss",
     "stylelint-config-sass-guidelines",
     "stylelint-config-clean-order/error"
   ],
   "rules": {
-    "max-nesting-depth": [3, { "ignore": ["blockless-at-rules"] }]
+    "max-nesting-depth": [3, { "ignore": ["blockless-at-rules"] }],
+    "plugin/stylelint-no-indistinguishable-colors": true,
+    "plugin/no-low-performance-animation-properties": true,
+    "plugin/stylelint-group-selectors": true,
+    "plugin/stylelint-selector-no-empty": true,
+    "plugin/z-index-value-constraint": {
+      "min": 1,
+      "max": 10
+    },
+    "declaration-no-important": true
   }
 }
