@@ -1,0 +1,13 @@
+.sub-text {
+  cursor: pointer;
+
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: var(--color-text);
+
+  transition: fill 0.3s;
+
+  &:hover {
+    fill: var(--color-accent);
+  }
+}

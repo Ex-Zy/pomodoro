@@ -1,0 +1,29 @@
+.timer-progress {
+  --total: 25;
+  --progress: 18;
+  --size: 340px;
+  --stroke-width: 12px;
+  --center: calc(var(--size) / 2);
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(2 * pi * var(--radius));
+  --dash: calc((var(--progress) * var(--circumference)) / var(--total));
+  --gap: calc(var(--circumference) - var(--dash));
+
+  @include size(var(--size), var(--size));
+}
+
+.timer-progress-circle {
+  transform-origin: var(--center) var(--center);
+  transform: rotate(-90deg);
+
+  cx: var(--center);
+  cy: var(--center);
+  r: var(--radius);
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-dasharray: var(--dash) var(--gap);
+  stroke-linecap: round;
+  stroke-width: var(--stroke-width);
+
+  transition: stroke-dasharray 0.5s linear 0s;
+}

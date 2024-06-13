@@ -1,0 +1,13 @@
+.timer-root {
+  --size: 410px;
+
+  @include size(var(--size), var(--size));
+  @include flex-center;
+
+  position: relative;
+  background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+  border-radius: 100%;
+  box-shadow:
+    50px 50px 100px 0 #0e112a,
+    -50px -50px 100px 0 #2e325a;
+}

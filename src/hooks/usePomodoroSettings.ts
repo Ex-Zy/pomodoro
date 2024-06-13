@@ -1,13 +1,14 @@
 import { useState } from 'react'
 
 import type { PomodoroSettings } from '../types/common.ts'
+import { UtilsTimer } from '../utils/timer.ts'
 
 export const usePomodoroSettings = () => {
   const [settings, setSettings] = useState<PomodoroSettings>({
     time: {
-      pomodoro: 5000,
-      shortBreak: 2000,
-      longBreak: 10000,
+      pomodoro: UtilsTimer.minutesToSeconds(1),
+      shortBreak: UtilsTimer.minutesToSeconds(5),
+      longBreak: UtilsTimer.minutesToSeconds(15),
     },
     font: {
       active: 'Roboto',
@@ -19,8 +20,8 @@ export const usePomodoroSettings = () => {
     },
     pomodorosUntilLongBreak: 4,
     autoStartBreak: true,
-    autoStartPomodoro: false,
-    autoStartLongBreak: true,
+    autoStartPomodoro: true,
+    autoStartLongBreak: false,
   })
 
   function handleSettingsChange(newSettings: Partial<PomodoroSettings>) {

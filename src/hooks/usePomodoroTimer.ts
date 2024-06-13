@@ -17,7 +17,8 @@ export const usePomodoroTimer = ({ settings }: Options) => {
 
   const modes = {
     [Modes.Pomodoro]: () => {
-      canSwitchToLongBreak() ? startLongBreak() : startShortBreak()
+      if (canSwitchToLongBreak()) startLongBreak()
+      else if (canSwitchToShortBreak()) startShortBreak()
     },
     [Modes.ShortBreak]: () => {
       startPomodoro()
@@ -28,7 +29,11 @@ export const usePomodoroTimer = ({ settings }: Options) => {
   }
 
   function canSwitchToLongBreak() {
-    return pomodoroSessionCount >= settings.pomodorosUntilLongBreak
+    return settings.autoStartLongBreak && pomodoroSessionCount >= settings.pomodorosUntilLongBreak
+  }
+
+  function canSwitchToShortBreak() {
+    return settings.autoStartBreak && pomodoroSessionCount < settings.pomodorosUntilLongBreak
   }
 
   function startShortBreak() {
@@ -53,7 +58,7 @@ export const usePomodoroTimer = ({ settings }: Options) => {
 
   function timerProcessing() {
     if (timer > 0) {
-      setTimer(timer - DURATION)
+      setTimer(timer - 1)
       return
     }
 
@@ -67,22 +72,21 @@ export const usePomodoroTimer = ({ settings }: Options) => {
   }
 
   function stopTimer() {
+    setIsRunning(false)
     clearInterval(timerID)
   }
 
   function resetTimer() {
     stopTimer()
-    setIsRunning(false)
     setTimer(settings.time.pomodoro)
     setPomodoroMode(Modes.Pomodoro)
     setPomodoroSessionCount(0)
   }
 
   function restartTimer() {
-    clearInterval(timerID)
-    setIsRunning(true)
+    stopTimer()
     setTimer(settings.time[pomodoroMode])
-    timerID = setInterval(timerProcessing, DURATION)
+    runTimer()
   }
 
   return {
