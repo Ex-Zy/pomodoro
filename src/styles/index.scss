@@ -8,7 +8,11 @@
 
 body {
   min-height: 100svh;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: var(--color-text);
+
   background: #1e213f;
 }
 

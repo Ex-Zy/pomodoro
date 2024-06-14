@@ -1,4 +1,4 @@
-import './TimerCountText.scss'
+import '../styles/TimerCountText.scss'
 import type React from 'react'
 
 interface Props {

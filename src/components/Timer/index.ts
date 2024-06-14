@@ -1,8 +1,8 @@
-import { TimerCountText } from './TimerCountText.tsx'
-import { TimerInnerCircle } from './TimerInnerCircle.tsx'
-import { TimerProgressCircle } from './TimerProgressCircle.tsx'
-import { TimerRootCircle } from './TimerRootCircle.tsx'
-import { TimerSubText } from './TimerSubText.tsx'
+import { TimerInnerCircle } from './CircleComponents/TimerInnerCircle.tsx'
+import { TimerProgressCircle } from './CircleComponents/TimerProgressCircle.tsx'
+import { TimerRootCircle } from './CircleComponents/TimerRootCircle.tsx'
+import { TimerCountText } from './TextComponents/TimerCountText.tsx'
+import { TimerSubText } from './TextComponents/TimerSubText.tsx'
 
 const Timer = {
   RootCircle: TimerRootCircle,

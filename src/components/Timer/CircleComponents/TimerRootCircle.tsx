@@ -1,4 +1,4 @@
-import './TimerRootCircle.scss'
+import '../styles/TimerRootCircle.scss'
 import type React from 'react'
 
 interface Props {

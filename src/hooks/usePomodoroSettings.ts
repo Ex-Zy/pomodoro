@@ -6,7 +6,7 @@ import { UtilsTimer } from '../utils/timer.ts'
 export const usePomodoroSettings = () => {
   const [settings, setSettings] = useState<PomodoroSettings>({
     time: {
-      pomodoro: UtilsTimer.minutesToSeconds(1),
+      pomodoro: UtilsTimer.minutesToSeconds(25),
       shortBreak: UtilsTimer.minutesToSeconds(5),
       longBreak: UtilsTimer.minutesToSeconds(15),
     },

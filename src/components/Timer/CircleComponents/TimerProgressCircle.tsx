@@ -1,4 +1,4 @@
-import './TimerProgressCircle.scss'
+import '../styles/TimerProgressCircle.scss'
 import type React from 'react'
 
 interface Props {
