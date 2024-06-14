@@ -29,3 +29,9 @@ export enum Modes {
   ShortBreak = 'shortBreak',
   LongBreak = 'longBreak',
 }
+
+export enum PomodoroTask {
+  Start = 'start',
+  Pause = 'pause',
+  Restart = 'restart',
+}

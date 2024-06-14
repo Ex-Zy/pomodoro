@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 
 import { usePomodoroSettings } from '../../hooks/usePomodoroSettings.ts'
 import { usePomodoroTimer } from '../../hooks/usePomodoroTimer.ts'
+import { PomodoroTask } from '../../types/common.ts'
+import { UtilsTask } from '../../utils/task.ts'
 import { UtilsTimer } from '../../utils/timer.ts'
 import Timer from '../Timer'
 
@@ -12,8 +14,13 @@ function App() {
     usePomodoroTimer({ settings })
 
   const totalTime = settings.time[pomodoroMode]
-  const buttonText = timer === 0 ? 'restart' : isRunning ? 'pause' : 'start'
-  const handleClick = timer === 0 ? restartTimer : isRunning ? stopTimer : runTimer
+  const task: PomodoroTask = UtilsTask.getTask({ timer, isRunning })
+  const taskActions = {
+    [PomodoroTask.Restart]: restartTimer,
+    [PomodoroTask.Pause]: stopTimer,
+    [PomodoroTask.Start]: runTimer,
+  }
+  const handleTaskAction = taskActions[task]
 
   useEffect(() => {
     if (isRunning) {
@@ -50,7 +57,7 @@ function App() {
             className={timer === 0 ? 'timer-progress--finished' : ''}
           >
             <Timer.CountText text={UtilsTimer.displayTime(timer)} />
-            <Timer.SubText text={buttonText} onClick={handleClick} />
+            <Timer.SubText text={task} onClick={handleTaskAction} />
           </Timer.ProgressCircle>
         </Timer.InnerCircle>
       </Timer.RootCircle>
