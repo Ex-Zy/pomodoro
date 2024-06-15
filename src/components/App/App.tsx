@@ -6,6 +6,7 @@ import { usePomodoroTimer } from '../../hooks/usePomodoroTimer.ts'
 import { PomodoroTask } from '../../types/common.ts'
 import { UtilsTask } from '../../utils/task.ts'
 import { UtilsTimer } from '../../utils/timer.ts'
+import { Logo } from '../Logo/Logo.tsx'
 import { PomodoroModes } from '../PomodoroModes/PomodoroModes.tsx'
 import PomodoroTimer from '../PomodoroTimer'
 
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <Logo />
       <p>Sessions: {pomodoroSessionCount}</p>
       <PomodoroModes mode={pomodoroMode} />
       <PomodoroTimer.RootCircle className="timer-root--margin">
