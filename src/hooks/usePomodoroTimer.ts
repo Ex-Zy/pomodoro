@@ -13,7 +13,6 @@ export const usePomodoroTimer = ({ settings }: Options) => {
   const [pomodoroSessionCount, setPomodoroSessionCount] = useState(0)
 
   let timerID: ReturnType<typeof setInterval>
-  const DURATION = 1000
 
   const modes = {
     [Modes.Pomodoro]: () => {
@@ -29,31 +28,38 @@ export const usePomodoroTimer = ({ settings }: Options) => {
   }
 
   function canSwitchToLongBreak() {
-    return settings.autoStartLongBreak && pomodoroSessionCount >= settings.pomodorosUntilLongBreak
+    return settings.autoStartLongBreak && isReadyToLongBreak()
   }
 
   function canSwitchToShortBreak() {
-    return settings.autoStartBreak && pomodoroSessionCount < settings.pomodorosUntilLongBreak
+    return settings.autoStartBreak && isReadyToShortBreak()
+  }
+
+  function isReadyToLongBreak() {
+    return pomodoroSessionCount >= settings.pomodorosUntilLongBreak
+  }
+
+  function isReadyToShortBreak() {
+    return pomodoroSessionCount < settings.pomodorosUntilLongBreak
   }
 
   function startShortBreak() {
     setIsRunning(settings.autoStartBreak)
     setTimer(settings.time.shortBreak)
     setPomodoroMode(Modes.ShortBreak)
-    setPomodoroSessionCount(pomodoroSessionCount + 1)
   }
 
   function startLongBreak() {
     setIsRunning(settings.autoStartLongBreak)
     setTimer(settings.time.longBreak)
     setPomodoroMode(Modes.LongBreak)
-    setPomodoroSessionCount(0)
   }
 
   function startPomodoro() {
     setIsRunning(settings.autoStartPomodoro)
     setTimer(settings.time.pomodoro)
     setPomodoroMode(Modes.Pomodoro)
+    setPomodoroSessionCount(isReadyToLongBreak() ? 1 : pomodoroSessionCount + 1)
   }
 
   function timerProcessing() {
@@ -67,8 +73,11 @@ export const usePomodoroTimer = ({ settings }: Options) => {
   }
 
   function runTimer() {
+    if (pomodoroSessionCount === 0 && pomodoroMode === Modes.Pomodoro) {
+      setPomodoroSessionCount(1)
+    }
     setIsRunning(true)
-    timerID = setInterval(timerProcessing, DURATION)
+    timerID = setInterval(timerProcessing, 1000)
   }
 
   function stopTimer() {

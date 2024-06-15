@@ -6,12 +6,14 @@ import { usePomodoroTimer } from '../../hooks/usePomodoroTimer.ts'
 import { PomodoroTask } from '../../types/common.ts'
 import { UtilsTask } from '../../utils/task.ts'
 import { UtilsTimer } from '../../utils/timer.ts'
+import { PomodoroModes } from '../PomodoroModes/PomodoroModes.tsx'
 import Timer from '../Timer'
 
 function App() {
   const { settings } = usePomodoroSettings()
-  const { isRunning, timer, pomodoroMode, pomodoroSessionCount, runTimer, stopTimer, resetTimer, restartTimer } =
-    usePomodoroTimer({ settings })
+  const { isRunning, timer, pomodoroMode, pomodoroSessionCount, runTimer, stopTimer, restartTimer } = usePomodoroTimer({
+    settings,
+  })
 
   const totalTime = settings.time[pomodoroMode]
   const task: PomodoroTask = UtilsTask.getTask({ timer, isRunning })
@@ -34,21 +36,8 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Mode: {pomodoroMode}</h1>
-      <p>Time: {timer}</p>
-      <p>Pomodoros sessions: {pomodoroSessionCount}</p>
-      <button type="button" onClick={runTimer}>
-        Run ##
-      </button>
-      <button type="button" onClick={restartTimer}>
-        Restart
-      </button>
-      <button type="button" onClick={stopTimer}>
-        Stop
-      </button>
-      <button type="button" onClick={resetTimer}>
-        Reset !!!
-      </button>
+      <p>Sessions: {pomodoroSessionCount}</p>
+      <PomodoroModes mode={pomodoroMode} />
       <Timer.RootCircle className="timer-root--margin">
         <Timer.InnerCircle>
           <Timer.ProgressCircle

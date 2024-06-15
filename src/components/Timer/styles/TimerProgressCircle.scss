@@ -26,4 +26,18 @@
   stroke-width: var(--stroke-width);
 
   transition: stroke-dasharray 0.5s linear 0s;
+
+  .timer-progress--finished & {
+    animation: 0.3s fade-out 0.3s ease-out both;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

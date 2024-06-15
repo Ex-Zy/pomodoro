@@ -21,7 +21,7 @@ export const usePomodoroSettings = () => {
     pomodorosUntilLongBreak: 4,
     autoStartBreak: true,
     autoStartPomodoro: true,
-    autoStartLongBreak: false,
+    autoStartLongBreak: true,
   })
 
   function handleSettingsChange(newSettings: Partial<PomodoroSettings>) {

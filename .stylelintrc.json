@@ -14,7 +14,7 @@
   "rules": {
     "max-nesting-depth": [3, { "ignore": ["blockless-at-rules"] }],
     "plugin/stylelint-no-indistinguishable-colors": true,
-    "plugin/no-low-performance-animation-properties": true,
+    "plugin/no-low-performance-animation-properties": [true, { "ignore": ["background-color"] }],
     "plugin/stylelint-group-selectors": true,
     "plugin/stylelint-selector-no-empty": true,
     "plugin/z-index-value-constraint": {

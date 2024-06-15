@@ -1,0 +1,44 @@
+.pomodoro-modes {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+
+  min-height: 64px;
+  padding: 8px;
+
+  background: var(--color-dark);
+  border-radius: 32px;
+
+  &__btn {
+    @include flex-center;
+
+    min-width: 120px;
+    min-height: 48px;
+    padding-inline: 10px;
+
+    background: transparent;
+    border: 0;
+    border-radius: 26px;
+
+    transition: background-color 0.3s;
+
+    span {
+      font: 700 12px / 14px var(--font-family);
+      color: var(--color-lavender);
+      opacity: 0.4;
+      transition:
+        color 0.3s,
+        opacity 0.3s;
+    }
+
+    &--active {
+      background: var(--color-accent);
+
+      span {
+        color: var(--color-midnight);
+        opacity: 1;
+      }
+    }
+  }
+}

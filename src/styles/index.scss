@@ -45,4 +45,8 @@ body {
 .body-2 {
   font: 700 12px / 14px var(--font-family);
   opacity: 0.4;
+
+  &--without-opacity {
+    opacity: 1;
+  }
 }
