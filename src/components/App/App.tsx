@@ -7,7 +7,7 @@ import { PomodoroTask } from '../../types/common.ts'
 import { UtilsTask } from '../../utils/task.ts'
 import { UtilsTimer } from '../../utils/timer.ts'
 import { PomodoroModes } from '../PomodoroModes/PomodoroModes.tsx'
-import Timer from '../Timer'
+import PomodoroTimer from '../PomodoroTimer'
 
 function App() {
   const { settings } = usePomodoroSettings()
@@ -38,18 +38,18 @@ function App() {
     <div className="app-container">
       <p>Sessions: {pomodoroSessionCount}</p>
       <PomodoroModes mode={pomodoroMode} />
-      <Timer.RootCircle className="timer-root--margin">
-        <Timer.InnerCircle>
-          <Timer.ProgressCircle
+      <PomodoroTimer.RootCircle className="timer-root--margin">
+        <PomodoroTimer.InnerCircle>
+          <PomodoroTimer.ProgressCircle
             total={UtilsTimer.secondsToMinutesWithRound(totalTime)}
             progress={UtilsTimer.secondsToMinutesWithRound(timer)}
             className={timer === 0 ? 'timer-progress--finished' : ''}
           >
-            <Timer.CountText text={UtilsTimer.displayTime(timer)} />
-            <Timer.SubText text={task} onClick={handleTaskAction} />
-          </Timer.ProgressCircle>
-        </Timer.InnerCircle>
-      </Timer.RootCircle>
+            <PomodoroTimer.CountText text={UtilsTimer.displayTime(timer)} />
+            <PomodoroTimer.SubText text={task} onClick={handleTaskAction} />
+          </PomodoroTimer.ProgressCircle>
+        </PomodoroTimer.InnerCircle>
+      </PomodoroTimer.RootCircle>
     </div>
   )
 }

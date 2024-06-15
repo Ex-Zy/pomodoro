@@ -8,7 +8,7 @@ interface Props {
 
 export const TimerSubText: React.FC<Props> = ({ text, onClick }: Props) => {
   return (
-    <text className="sub-text h3" x="50%" y="75%" onClick={onClick}>
+    <text className="sub-text h3" x="50%" dx="5px" y="75%" onClick={onClick}>
       {text}
     </text>
   )

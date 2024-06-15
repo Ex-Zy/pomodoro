@@ -4,7 +4,7 @@ import { TimerRootCircle } from './CircleComponents/TimerRootCircle.tsx'
 import { TimerCountText } from './TextComponents/TimerCountText.tsx'
 import { TimerSubText } from './TextComponents/TimerSubText.tsx'
 
-const Timer = {
+const PomodoroTimer = {
   RootCircle: TimerRootCircle,
   InnerCircle: TimerInnerCircle,
   ProgressCircle: TimerProgressCircle,
@@ -12,4 +12,4 @@ const Timer = {
   SubText: TimerSubText,
 }
 
-export default Timer
+export default PomodoroTimer
