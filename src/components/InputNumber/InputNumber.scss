@@ -1,0 +1,17 @@
+.input-number {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 120px;
+
+  &__label {
+    margin-bottom: 8px;
+  }
+
+  &__el {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+  }
+}

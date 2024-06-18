@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Modes, type PomodoroSettings } from '../types/common.ts'
 
@@ -11,6 +11,10 @@ export const usePomodoroTimer = ({ settings }: Options) => {
   const [timer, setTimer] = useState<number>(settings.time.pomodoro)
   const [pomodoroMode, setPomodoroMode] = useState<Modes>(Modes.Pomodoro)
   const [pomodoroSessionCount, setPomodoroSessionCount] = useState(0)
+
+  useEffect(() => {
+    setTimer(settings.time.pomodoro)
+  }, [settings])
 
   let timerID: ReturnType<typeof setInterval>
 
