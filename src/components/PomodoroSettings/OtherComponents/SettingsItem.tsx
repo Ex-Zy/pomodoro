@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const SettingsItem: React.FC<Props> = ({ title, variant = 'horizontal', className = '', children }) => {
-  const classes = `settings-item ${variant === 'vertical' ? 'settings-item-vertical' : ''} ${className}`
+  const classes = `settings-item settings-item--${variant} ${className}`
   return (
     <div className={classes}>
       <h4 className="settings-item-title h4">{title}</h4>

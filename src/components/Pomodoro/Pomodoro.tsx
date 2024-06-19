@@ -36,7 +36,6 @@ export const Pomodoro = () => {
 
   return (
     <>
-      <p>Sessions: {pomodoroSessionCount}</p>
       <PomodoroModes mode={pomodoroMode} />
       <PomodoroTimer.RootCircle className="timer-root--margin">
         <PomodoroTimer.InnerCircle>

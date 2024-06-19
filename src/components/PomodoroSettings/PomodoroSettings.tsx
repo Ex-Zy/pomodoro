@@ -4,11 +4,13 @@ import type React from 'react'
 import { useRef, useState } from 'react'
 import { Transition } from 'react-transition-group'
 
+import { SettingsApplyButton } from './ButtonComponents/SettingsApplyButton.tsx'
 import { SettingsCallButton } from './ButtonComponents/SettingsCallButton.tsx'
 import { SettingsContent } from './ModalComponents/SettingsContent.tsx'
 import { SettingsDialog } from './ModalComponents/SettingsDialog.tsx'
 import { SettingsModal } from './ModalComponents/SettingsModal.tsx'
-import { SettingsAttributes } from './OtherComponents/SettingsAttributes.tsx'
+import { SettingsColors } from './OtherComponents/SettingsColors.tsx'
+import { SettingsFonts } from './OtherComponents/SettingsFonts.tsx'
 import { SettingsItem } from './OtherComponents/SettingsItem.tsx'
 import { SettingsTime } from './OtherComponents/SettingsTime.tsx'
 import type { PomodoroSettings as Settings } from '../../types/common.ts'
@@ -56,21 +58,24 @@ export const PomodoroSettings: React.FC<Props> = ({ settings, onSubmit }: Props)
         {(state: string) => (
           <SettingsModal state={state} open={!['exited', 'exiting'].includes(state)} onClose={handleClose}>
             <SettingsDialog state={state}>
-              <ModalClose />
+              <ModalClose
+                sx={{
+                  top: 38,
+                  right: 28,
+                }}
+              />
               <SettingsContent>
                 <SettingsItem title="TIME (MINUTES)" variant="vertical">
                   <SettingsTime settings={tempSettings} onSubmit={handleUpdate} />
                 </SettingsItem>
-                <SettingsItem title="FONT">
-                  <SettingsAttributes settings={tempSettings} onSubmit={handleUpdate} />
+                <SettingsItem title="FONT" variant="horizontal">
+                  <SettingsFonts settings={tempSettings} onSubmit={handleUpdate} />
                 </SettingsItem>
-                <SettingsItem title="COLOR">
-                  <SettingsAttributes settings={tempSettings} onSubmit={handleUpdate} />
+                <SettingsItem title="COLOR" variant="horizontal">
+                  <SettingsColors settings={tempSettings} onSubmit={handleUpdate} />
                 </SettingsItem>
               </SettingsContent>
-              <button type="button" onClick={handleApply}>
-                Apply
-              </button>
+              <SettingsApplyButton onClick={handleApply}>Apply</SettingsApplyButton>
             </SettingsDialog>
           </SettingsModal>
         )}

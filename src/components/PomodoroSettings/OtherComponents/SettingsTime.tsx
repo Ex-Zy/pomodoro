@@ -13,7 +13,7 @@ interface Props {
 export const SettingsTime: React.FC<Props> = ({ settings, onSubmit }: Props) => {
   const { time, handleTimeChange } = useSettingsTime({ settings, onSubmit })
   return (
-    <>
+    <div className="settings-time">
       <InputNumber
         label="pomodoro"
         id="pomodoro"
@@ -38,6 +38,6 @@ export const SettingsTime: React.FC<Props> = ({ settings, onSubmit }: Props) => 
           handleTimeChange('longBreak', value)
         }}
       />
-    </>
+    </div>
   )
 }

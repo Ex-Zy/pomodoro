@@ -17,7 +17,7 @@ function normalizeModeValue(mode: Modes) {
 export const PomodoroModes: React.FC<Props> = ({ mode }: Props) => {
   const modes = [Modes.Pomodoro, Modes.ShortBreak, Modes.LongBreak]
   return (
-    <div className="pomodoro-modes">
+    <div className="pomodoro-modes pomodoro-modes--margin">
       {modes.map((item) => {
         const isActive = mode === item
         const btnClasses = `pomodoro-modes__btn`.concat(isActive ? ' pomodoro-modes__btn--active' : '').trim()

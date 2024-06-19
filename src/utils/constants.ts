@@ -8,12 +8,12 @@ export const DEFAULT_POMODORO_SETTINGS: PomodoroSettings = {
     longBreak: UtilsTimer.minutesToSeconds(15),
   },
   font: {
-    active: 'Roboto',
-    available: ['Roboto', 'Arial', 'Courier New'],
+    active: 'Kumbh Sans',
+    available: ['Kumbh Sans', 'Roboto Slab', 'Space Mono'],
   },
   color: {
-    active: '#5394fd',
-    available: ['#5394fd', '#f44336', '#4caf50'],
+    active: '#f87070',
+    available: ['#f87070', '#70f3f8', '#d881f8'],
   },
   pomodorosUntilLongBreak: 4,
   autoStartBreak: true,
