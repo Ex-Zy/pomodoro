@@ -1,5 +1,4 @@
 import './PomodoroSettings.scss'
-import { ModalClose } from '@mui/joy'
 import type React from 'react'
 import { useRef, useState } from 'react'
 import { Transition } from 'react-transition-group'
