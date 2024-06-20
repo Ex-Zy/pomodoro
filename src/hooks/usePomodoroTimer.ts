@@ -13,8 +13,8 @@ export const usePomodoroTimer = ({ settings }: Options) => {
   const [pomodoroSessionCount, setPomodoroSessionCount] = useState(0)
 
   useEffect(() => {
-    setTimer(settings.time.pomodoro)
-  }, [settings])
+    setTimer(settings.time[pomodoroMode])
+  }, [settings.time, pomodoroMode])
 
   let timerID: ReturnType<typeof setInterval>
 

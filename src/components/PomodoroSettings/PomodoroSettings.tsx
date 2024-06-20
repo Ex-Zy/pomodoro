@@ -58,12 +58,14 @@ export const PomodoroSettings: React.FC<Props> = ({ settings, onSubmit }: Props)
         {(state: string) => (
           <SettingsModal state={state} open={!['exited', 'exiting'].includes(state)} onClose={handleClose}>
             <SettingsDialog state={state}>
-              <ModalClose
-                sx={{
-                  top: 38,
-                  right: 28,
-                }}
-              />
+              <div className="settings-close">
+                <ModalClose
+                  sx={{
+                    top: 0,
+                    right: 0,
+                  }}
+                />
+              </div>
               <SettingsContent>
                 <SettingsItem title="TIME (MINUTES)" variant="vertical">
                   <SettingsTime settings={tempSettings} onSubmit={handleUpdate} />

@@ -10,6 +10,11 @@
   --gap: calc(var(--circumference) - var(--dash));
 
   @include size(var(--size), var(--size));
+
+  @include mobile {
+    --size: 249px;
+    --stroke-width: 8px;
+  }
 }
 
 .timer-progress-circle {

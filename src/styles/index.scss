@@ -17,6 +17,11 @@ body {
 }
 
 .h1 {
+  @include mobile {
+    font-size: 80px;
+    line-height: 1.2;
+  }
+
   font: 700 100px / 120px var(--font-family);
   letter-spacing: -0.05em;
 }
@@ -26,6 +31,11 @@ body {
 }
 
 .h3 {
+  @include mobile {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
   font: 700 16px / 19px var(--font-family);
   text-transform: uppercase;
   letter-spacing: 0.94em;

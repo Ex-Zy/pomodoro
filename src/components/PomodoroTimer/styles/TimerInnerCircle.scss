@@ -4,6 +4,10 @@
   @include size(var(--size), var(--size));
   @include flex-center;
 
+  @include mobile {
+    --size: 268px;
+  }
+
   position: relative;
   background: #0e112a;
   border-radius: 100%;

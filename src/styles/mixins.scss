@@ -8,3 +8,9 @@
   width: $w;
   height: $h;
 }
+
+@mixin mobile {
+  @media screen and (width <= 600px) {
+    @content;
+  }
+}

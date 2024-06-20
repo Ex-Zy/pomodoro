@@ -4,6 +4,10 @@
   @include size(var(--size), var(--size));
   @include flex-center;
 
+  @include mobile {
+    --size: 300px;
+  }
+
   position: relative;
   background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
   border-radius: 100%;

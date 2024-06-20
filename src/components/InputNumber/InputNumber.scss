@@ -1,4 +1,10 @@
 .input-number {
+  @include mobile {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   display: inline-flex;
   flex-direction: column;
   min-width: 120px;
@@ -27,6 +33,10 @@
   }
 
   &__container {
+    @include mobile {
+      width: 140px;
+    }
+
     position: relative;
   }
 

@@ -17,6 +17,10 @@
   &__btn {
     @include flex-center;
 
+    @include mobile {
+      min-width: 106px;
+    }
+
     min-width: 120px;
     min-height: 48px;
     padding-inline: 10px;
@@ -28,7 +32,11 @@
     transition: background-color 0.3s;
 
     span {
-      font: 700 12px / 14px var(--font-family);
+      @include mobile {
+        font-size: 12px;
+      }
+
+      font: 700 14px / 1.2 var(--font-family);
       color: var(--color-lavender);
       opacity: 0.4;
       transition:
