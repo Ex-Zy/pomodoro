@@ -11,9 +11,10 @@ import PomodoroTimer from '../PomodoroTimer'
 
 export const Pomodoro = () => {
   const { settings, handleSettingsChange } = usePomodoroSettings()
-  const { isRunning, timer, pomodoroMode, pomodoroSessionCount, runTimer, stopTimer, restartTimer } = usePomodoroTimer({
-    settings,
-  })
+  const { isRunning, timer, pomodoroMode, pomodoroSessionCount, runTimer, stopTimer, restartTimer, changeMode } =
+    usePomodoroTimer({
+      settings,
+    })
 
   const totalTime = settings.time[pomodoroMode]
   const task: PomodoroTask = UtilsTask.getTask({ timer, isRunning })
@@ -36,7 +37,7 @@ export const Pomodoro = () => {
 
   return (
     <>
-      <PomodoroModes mode={pomodoroMode} />
+      <PomodoroModes mode={pomodoroMode} onClick={changeMode} />
       <PomodoroTimer.RootCircle className="timer-root--margin">
         <PomodoroTimer.InnerCircle>
           <PomodoroTimer.ProgressCircle

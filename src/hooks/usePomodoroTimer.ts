@@ -31,6 +31,11 @@ export const usePomodoroTimer = ({ settings }: Options) => {
     },
   }
 
+  function changeMode(mode: Modes) {
+    setPomodoroMode(mode)
+    stopTimer()
+  }
+
   function canSwitchToLongBreak() {
     return settings.autoStartLongBreak && isReadyToLongBreak()
   }
@@ -111,5 +116,6 @@ export const usePomodoroTimer = ({ settings }: Options) => {
     stopTimer,
     resetTimer,
     restartTimer,
+    changeMode,
   }
 }
