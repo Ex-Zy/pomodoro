@@ -1,9 +1,9 @@
 import type React from 'react'
 
-import { useSettingsTime } from '../../../hooks/useSettingsTime.ts'
-import type { PomodoroSettings } from '../../../types/common.ts'
-import { UtilsTimer } from '../../../utils/timer.ts'
-import { InputNumber } from '../../InputNumber/InputNumber.tsx'
+import { useSettingsTime } from '../../../../hooks/pomodoro/useSettingsTime.ts'
+import type { PomodoroSettings } from '../../../../types/common.ts'
+import { UtilsTimer } from '../../../../utils/timer.ts'
+import { InputNumber } from '../../../Base/InputNumber/InputNumber.tsx'
 
 interface Props {
   settings: PomodoroSettings

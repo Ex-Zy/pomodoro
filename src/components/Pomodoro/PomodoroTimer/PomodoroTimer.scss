@@ -1,3 +1,40 @@
+.timer-root {
+  --size: 410px;
+
+  @include size(var(--size), var(--size));
+  @include flex-center;
+
+  @include mobile {
+    --size: 300px;
+  }
+
+  position: relative;
+  background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+  border-radius: 100%;
+  box-shadow:
+    50px 50px 100px 0 #0e112a,
+    -50px -50px 100px 0 #2e325a;
+
+  &--margin {
+    margin-top: 45px;
+  }
+}
+
+.timer-inner {
+  --size: 366px;
+
+  @include size(var(--size), var(--size));
+  @include flex-center;
+
+  @include mobile {
+    --size: 268px;
+  }
+
+  position: relative;
+  background: #0e112a;
+  border-radius: 100%;
+}
+
 .timer-progress {
   --total: 25;
   --progress: 18;
@@ -34,6 +71,26 @@
 
   .timer-progress--finished & {
     animation: 0.3s fade-out 0.3s ease-out both;
+  }
+}
+
+.count-text {
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: var(--color-text);
+}
+
+.sub-text {
+  cursor: pointer;
+
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: var(--color-text);
+
+  transition: fill 0.3s;
+
+  &:hover {
+    fill: var(--color-accent);
   }
 }
 

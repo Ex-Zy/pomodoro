@@ -1,8 +1,8 @@
 import { Radio, RadioGroup, Sheet, radioClasses } from '@mui/joy'
 import type React from 'react'
 
-import type { PomodoroSettings as Settings } from '../../../types/common.ts'
-import { IconCheck } from '../../Icons/IconCheck.tsx'
+import type { PomodoroSettings as Settings } from '../../../../types/common.ts'
+import { IconCheck } from '../../../Base/Icons/IconCheck.tsx'
 
 interface Props {
   settings: Settings

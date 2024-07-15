@@ -1,7 +1,7 @@
 import './InputNumber.scss'
 import type React from 'react'
 
-import { useInputNumber } from '../../hooks/useInputNumber.ts'
+import { useInputNumber } from '../../../hooks/useInputNumber.ts'
 import { IconArrowDown } from '../Icons/IconArrowDown.tsx'
 import { IconArrowUp } from '../Icons/IconArrowUp.tsx'
 

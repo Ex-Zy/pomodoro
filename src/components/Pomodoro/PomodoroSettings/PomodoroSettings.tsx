@@ -12,7 +12,7 @@ import { SettingsColors } from './OtherComponents/SettingsColors.tsx'
 import { SettingsFonts } from './OtherComponents/SettingsFonts.tsx'
 import { SettingsItem } from './OtherComponents/SettingsItem.tsx'
 import { SettingsTime } from './OtherComponents/SettingsTime.tsx'
-import type { PomodoroSettings as Settings } from '../../types/common.ts'
+import type { PomodoroSettings as Settings } from '../../../types/common.ts'
 
 interface Props {
   settings: Settings

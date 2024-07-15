@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { Modes, type PomodoroSettings } from '../types/common.ts'
+import { Modes, type PomodoroSettings, PomodoroTask } from '../../types/common.ts'
+import { UtilsTask } from '../../utils/task.ts'
 
 interface Options {
   settings: PomodoroSettings
@@ -35,6 +36,15 @@ export const usePomodoroTimer = ({ settings }: Options) => {
     setPomodoroMode(mode)
     stopTimer()
   }
+
+  const totalTime = settings.time[pomodoroMode]
+  const task: PomodoroTask = UtilsTask.getTask({ timer, isRunning })
+  const taskActions = {
+    [PomodoroTask.Restart]: restartTimer,
+    [PomodoroTask.Pause]: stopTimer,
+    [PomodoroTask.Start]: runTimer,
+  }
+  const handleTaskAction = taskActions[task]
 
   function canSwitchToLongBreak() {
     return settings.autoStartLongBreak && isReadyToLongBreak()
@@ -112,10 +122,13 @@ export const usePomodoroTimer = ({ settings }: Options) => {
     timer,
     pomodoroMode,
     pomodoroSessionCount,
+    task,
+    totalTime,
     runTimer,
     stopTimer,
     resetTimer,
     restartTimer,
     changeMode,
+    handleTaskAction,
   }
 }

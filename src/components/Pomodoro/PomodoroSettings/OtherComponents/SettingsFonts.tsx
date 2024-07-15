@@ -1,7 +1,7 @@
 import { Radio, RadioGroup, Sheet, radioClasses } from '@mui/joy'
 import type React from 'react'
 
-import type { PomodoroSettings as Settings } from '../../../types/common.ts'
+import type { PomodoroSettings as Settings } from '../../../../types/common.ts'
 
 interface Props {
   settings: Settings

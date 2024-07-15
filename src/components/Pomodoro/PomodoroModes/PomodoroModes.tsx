@@ -1,7 +1,7 @@
 import './PomodoroModes.scss'
 import type React from 'react'
 
-import { Modes } from '../../types/common.ts'
+import { Modes } from '../../../types/common.ts'
 
 interface Props {
   mode: Modes

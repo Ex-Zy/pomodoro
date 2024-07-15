@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import type { PomodoroSettings, PomodoroTimeOptions } from '../types/common.ts'
-import { UtilsTimer } from '../utils/timer.ts'
+import type { PomodoroSettings, PomodoroTimeOptions } from '../../types/common.ts'
+import { UtilsTimer } from '../../utils/timer.ts'
 
 interface UseSettingsTimeOptions {
   settings: PomodoroSettings
