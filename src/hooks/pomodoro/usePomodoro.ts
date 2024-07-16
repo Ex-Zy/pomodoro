@@ -36,6 +36,7 @@ export const usePomodoro = () => {
     timer,
     isRunning,
     pomodoroMode,
+    pomodoroSessionCount,
     task,
     totalTime,
 

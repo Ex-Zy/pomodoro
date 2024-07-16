@@ -1,10 +1,13 @@
 import './PomodoroModes.scss'
+import { clsx } from 'clsx'
 import type React from 'react'
 
 import { Modes } from '../../../types/common.ts'
 
 interface Props {
   mode: Modes
+  pomodorosUntilLongBreak: number
+  pomodoroSessionCount: number
   onClick: (mode: Modes) => void
 }
 
@@ -15,27 +18,46 @@ function normalizeModeValue(mode: Modes) {
     .toLowerCase()
 }
 
-export const PomodoroModes: React.FC<Props> = ({ mode, onClick }: Props) => {
+export const PomodoroModes: React.FC<Props> = ({
+  mode,
+  pomodoroSessionCount,
+  pomodorosUntilLongBreak,
+  onClick,
+}: Props) => {
   const modes = [Modes.Pomodoro, Modes.ShortBreak, Modes.LongBreak]
   return (
-    <div className="pomodoro-modes pomodoro-modes--margin">
-      {modes.map((item) => {
-        const isActive = mode === item
-        const btnClasses = `pomodoro-modes__btn`.concat(isActive ? ' pomodoro-modes__btn--active' : '').trim()
+    <>
+      <div className="pomodoro-modes pomodoro-modes--margin">
+        {modes.map((item) => {
+          const isActive = mode === item
+          const btnClasses = `pomodoro-modes__btn`.concat(isActive ? ' pomodoro-modes__btn--active' : '').trim()
 
-        return (
-          <button
-            key={item}
-            type="button"
-            className={btnClasses}
-            onClick={() => {
-              onClick(item)
-            }}
-          >
-            <span>{normalizeModeValue(item)}</span>
-          </button>
-        )
-      })}
-    </div>
+          return (
+            <button
+              key={item}
+              type="button"
+              className={btnClasses}
+              onClick={() => {
+                onClick(item)
+              }}
+            >
+              <span>{normalizeModeValue(item)}</span>
+            </button>
+          )
+        })}
+      </div>
+      <ul className="pomodoro-session">
+        {[...Array(pomodorosUntilLongBreak).keys()].map((item) => {
+          return (
+            <li
+              key={item}
+              className={clsx('pomodoro-session__item', {
+                'pomodoro-session__item--active': pomodoroSessionCount === item + 1,
+              })}
+            ></li>
+          )
+        })}
+      </ul>
+    </>
   )
 }

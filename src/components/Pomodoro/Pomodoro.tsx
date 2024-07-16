@@ -4,12 +4,29 @@ import { PomodoroTimer } from './PomodoroTimer/PomodoroTimer.tsx'
 import { usePomodoro } from '../../hooks/pomodoro/usePomodoro.ts'
 
 export const Pomodoro = () => {
-  const { pomodoroMode, settings, task, timer, totalTime, changeMode, handleTaskAction, handleSettingsChange } =
-    usePomodoro()
+  const {
+    // Mode options
+    pomodoroMode,
+    pomodoroSessionCount,
+    changeMode,
+    // Timer options
+    timer,
+    totalTime,
+    task,
+    handleTaskAction,
+    // Settings options
+    settings,
+    handleSettingsChange,
+  } = usePomodoro()
   return (
     <>
-      <PomodoroModes mode={pomodoroMode} onClick={changeMode} />
-      <PomodoroTimer total={totalTime} timer={timer} progress={timer} task={task} onTaskAction={handleTaskAction} />
+      <PomodoroModes
+        mode={pomodoroMode}
+        pomodoroSessionCount={pomodoroSessionCount}
+        pomodorosUntilLongBreak={settings.pomodorosUntilLongBreak}
+        onClick={changeMode}
+      />
+      <PomodoroTimer total={totalTime} timer={timer} task={task} onTaskAction={handleTaskAction} />
       <PomodoroSettings settings={settings} onSubmit={handleSettingsChange} />
     </>
   )

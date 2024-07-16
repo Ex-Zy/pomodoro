@@ -56,3 +56,27 @@
     }
   }
 }
+
+.pomodoro-session {
+  display: flex;
+  gap: 8px;
+  margin: 15px 0 0;
+  padding: 0;
+
+  &__item {
+    @include size(10px, 10px);
+
+    list-style-type: none;
+
+    opacity: 0.4;
+    background: var(--color-lavender);
+    border-radius: 50%;
+
+    transition: opacity 0.3s;
+
+    &--active {
+      opacity: 1;
+      background: var(--color-accent);
+    }
+  }
+}

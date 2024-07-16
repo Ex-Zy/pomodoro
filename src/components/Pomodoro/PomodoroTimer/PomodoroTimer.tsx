@@ -2,20 +2,20 @@ import './PomodoroTimer.scss'
 import { clsx } from 'clsx'
 import type React from 'react'
 
+import type { PomodoroTask } from '../../../types/common.ts'
 import { UtilsTimer } from '../../../utils/timer.ts'
 
 interface TimerProps {
   total: number
   timer: number
-  progress: number
-  task: string
+  task: PomodoroTask
   onTaskAction: () => void
 }
 
-export const PomodoroTimer: React.FC<TimerProps> = ({ total, progress, timer, task, onTaskAction }) => {
+export const PomodoroTimer: React.FC<TimerProps> = ({ total, timer, task, onTaskAction }) => {
   const formatedTimer = UtilsTimer.displayTime(timer)
   const formatedTotal = UtilsTimer.secondsToMinutesWithRound(total)
-  const formatedProgress = UtilsTimer.secondsToMinutesWithRound(progress)
+  const formatedProgress = UtilsTimer.secondsToMinutesWithRound(timer)
   return (
     <>
       <div className="timer-root timer-root--margin">

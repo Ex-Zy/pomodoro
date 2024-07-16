@@ -8,9 +8,11 @@ import { SettingsCallButton } from './ButtonComponents/SettingsCallButton.tsx'
 import { SettingsContent } from './ModalComponents/SettingsContent.tsx'
 import { SettingsDialog } from './ModalComponents/SettingsDialog.tsx'
 import { SettingsModal } from './ModalComponents/SettingsModal.tsx'
+import { SettingsAutoStart } from './OtherComponents/SettingsAutoStart.tsx'
 import { SettingsColors } from './OtherComponents/SettingsColors.tsx'
 import { SettingsFonts } from './OtherComponents/SettingsFonts.tsx'
 import { SettingsItem } from './OtherComponents/SettingsItem.tsx'
+import { SettingsPomodoros } from './OtherComponents/SettingsPomodoros.tsx'
 import { SettingsTime } from './OtherComponents/SettingsTime.tsx'
 import type { PomodoroSettings as Settings } from '../../../types/common.ts'
 
@@ -60,6 +62,12 @@ export const PomodoroSettings: React.FC<Props> = ({ settings, onSubmit }: Props)
               <SettingsContent>
                 <SettingsItem title="TIME (MINUTES)" variant="vertical">
                   <SettingsTime settings={tempSettings} onSubmit={handleUpdate} />
+                </SettingsItem>
+                <SettingsItem title="Pomodoros" variant="horizontal">
+                  <SettingsPomodoros settings={tempSettings} onSubmit={handleUpdate} />
+                </SettingsItem>
+                <SettingsItem title="Auto start" variant="horizontal">
+                  <SettingsAutoStart settings={tempSettings} onSubmit={handleUpdate} />
                 </SettingsItem>
                 <SettingsItem title="FONT" variant="horizontal">
                   <SettingsFonts settings={tempSettings} onSubmit={handleUpdate} />
