@@ -13,7 +13,7 @@ Users should be able to:
 
 ### Preview
 
-![](./preview.webp)
+![](./preview.gif)
 
 ### Links
 - Live Site URL: [Demo](https://pomodoro-six-psi.vercel.app/)
