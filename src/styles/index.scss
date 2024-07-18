@@ -60,3 +60,10 @@ body {
     opacity: 1;
   }
 }
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}

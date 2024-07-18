@@ -1,4 +1,5 @@
 import './PomodoroSettings.scss'
+import { motion } from 'framer-motion'
 import type React from 'react'
 import { useRef, useState } from 'react'
 import { Transition } from 'react-transition-group'
@@ -15,6 +16,8 @@ import { SettingsItem } from './OtherComponents/SettingsItem.tsx'
 import { SettingsPomodoros } from './OtherComponents/SettingsPomodoros.tsx'
 import { SettingsTime } from './OtherComponents/SettingsTime.tsx'
 import type { PomodoroSettings as Settings } from '../../../types/common.ts'
+
+const MotionSettingsCallButton = motion(SettingsCallButton)
 
 interface Props {
   settings: Settings
@@ -50,7 +53,16 @@ export const PomodoroSettings: React.FC<Props> = ({ settings, onSubmit }: Props)
 
   return (
     <div className="settings">
-      <SettingsCallButton
+      <MotionSettingsCallButton
+        initial={{ y: 30, opacity: 0 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 1.5,
+            duration: 0.3,
+          },
+        }}
         onClick={() => {
           setOpen(true)
         }}

@@ -1,5 +1,6 @@
 import './PomodoroModes.scss'
 import { clsx } from 'clsx'
+import { motion } from 'framer-motion'
 import type React from 'react'
 
 import { Modes } from '../../../types/common.ts'
@@ -27,7 +28,18 @@ export const PomodoroModes: React.FC<Props> = ({
   const modes = [Modes.Pomodoro, Modes.ShortBreak, Modes.LongBreak]
   return (
     <>
-      <div className="pomodoro-modes pomodoro-modes--margin">
+      <motion.div
+        className="pomodoro-modes pomodoro-modes--margin"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            delay: 0.6,
+            duration: 0.3,
+          },
+        }}
+      >
         {modes.map((item) => {
           const isActive = mode === item
           const btnClasses = `pomodoro-modes__btn`.concat(isActive ? ' pomodoro-modes__btn--active' : '').trim()
@@ -45,8 +57,19 @@ export const PomodoroModes: React.FC<Props> = ({
             </button>
           )
         })}
-      </div>
-      <ul className="pomodoro-session">
+      </motion.div>
+      <motion.ul
+        className="pomodoro-session"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            delay: 0.9,
+            duration: 0.3,
+          },
+        }}
+      >
         {[...Array(pomodorosUntilLongBreak).keys()].map((item) => {
           return (
             <li
@@ -57,7 +80,7 @@ export const PomodoroModes: React.FC<Props> = ({
             ></li>
           )
         })}
-      </ul>
+      </motion.ul>
     </>
   )
 }
